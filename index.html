@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Maid.Co</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6a11cb">
+
+</head>
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="app-header">
+    Maid.Co
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="screen active">
+    <h1>Choose a Service</h1>
+
+    <div class="service-card" onclick="selectService('Cleaning')">
+      🧹 Home Cleaning
+    </div>
+
+    <div class="service-card" onclick="selectService('Cooking')">
+      🍳 Cooking
+    </div>
+
+    <div class="service-card" onclick="selectService('Babysitting')">
+      👶 Babysitting
+    </div>
+  </section>
+
+  <!-- MAID LIST -->
+  <section id="maids" class="screen">
+    <h2>Select Maid</h2>
+    <div id="maidList"></div>
+  </section>
+
+  <!-- DATE TIME -->
+  <section id="datetime" class="screen">
+    <h2>Select Date & Time</h2>
+
+    <div class="datetime-box">
+      <label>Date</label>
+      <input type="date" id="date" />
+    </div>
+
+    <div class="datetime-box">
+      <label>Time</label>
+      <input type="time" id="time" />
+    </div>
+
+    <button class="primary-btn" onclick="confirmBooking()">Confirm Booking</button>
+  </section>
+
+  <!-- CONFIRMATION -->
+  <section id="confirmation" class="screen">
+    <h2>Booking Confirmed 🎉</h2>
+
+    <div class="maid-info">
+      <img id="maidPhoto" />
+      <h3 id="maidName"></h3>
+
+      <p><strong>Phone:</strong> <span id="maidContact"></span></p>
+      <p><strong>Address:</strong> <span id="maidAddress"></span></p>
+
+      <a id="callBtn" class="call-btn">📞 Call Maid</a>
+
+      <p class="status">✔ Confirmed</p>
+    </div>
+
+    <p id="bookingMeta"></p>
+
+    <button class="secondary-btn" onclick="goHome()">Back to Home</button>
+  </section>
+
+</div>
+
+<script src="js/app.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
+
+</body>
+</html>
