@@ -97,3 +97,4 @@ Time: ${time}`;
 function goHome() {
   showScreen("home");
 }
+
